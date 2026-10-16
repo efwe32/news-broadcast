@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#0b0f1a" />
+<meta http-equiv="Cache-Control" content="no-cache" />
+<title>新闻播报 · 实时语音</title>
+<link rel="stylesheet" href="/static/styles.css?v=4" />
+</head>
+<body>
+  <div class="bg-glow"></div>
+  <header class="top">
+    <div class="brand">
+      <div class="logo">讯</div>
+      <div>
+        <h1>新闻播报</h1>
+        <p class="sub">实时热点 · 语音口播</p>
+      </div>
+    </div>
+    <div class="top-actions">
+      <button id="btnBroadcast" class="pill off" type="button" aria-pressed="false">
+        <span class="dot"></span>
+        <span class="label">播报关</span>
+      </button>
+      <button id="btnRefresh" class="icon-btn" type="button" title="刷新">刷新</button>
+      <button id="btnNotify" class="icon-btn" type="button" title="通知">通知</button>
+      <button id="btnSettings" class="icon-btn" type="button" title="设置">设置</button>
+    </div>
+  </header>
+
+  <section class="meta-bar">
+    <span id="updateTime">更新时间 —</span>
+    <span id="providerBadge" class="badge muted">—</span>
+    <span id="queueStatus" class="muted">队列空闲</span>
+  </section>
+
+  <section class="now-playing" id="nowPlaying" aria-live="polite">
+    <span class="np-label">播报区</span>
+    <span class="np-text" id="nowPlayingText">尚未开始 · 点「播报开」或条目「播报」</span>
+  </section>
+
+  <section class="sources-wrap">
+    <div class="sec-head">
+      <h2>新闻源</h2>
+      <span id="sourcesCount" class="muted"></span>
+    </div>
+    <div id="sourcesBar" class="sources-bar"></div>
+  </section>
+
+  <section class="voice-bar">
+    <label>音色</label>
+    <div id="voicePicker" class="chips" role="listbox" aria-label="音色选择"></div>
+  </section>
+
+  <section class="filters" id="filters"></section>
+
+  <section class="settings-panel hidden" id="settingsPanel">
+    <h3>刷新间隔</h3>
+    <div class="chips" id="intervalPicker">
+      <button type="button" data-ms="30000">30秒</button>
+      <button type="button" data-ms="60000" class="active">60秒</button>
+      <button type="button" data-ms="120000">2分钟</button>
+    </div>
+    <p class="hint">播报开启时：优先条近实时入队；每半小时口播微博/抖音/头条热搜。手动点「播报」会强制播放（不受已听过过滤）。</p>
+  </section>
+
+  <section class="priority-wrap">
+    <div class="sec-head">
+      <h2>AI / 优先</h2>
+      <button id="btnPlayPriority" class="text-btn" type="button">播报本区</button>
+    </div>
+    <div id="priorityList" class="card-list"></div>
+  </section>
+
+  <section class="feed-wrap">
+    <div class="sec-head">
+      <h2 id="feedTitle">全部热点</h2>
+      <span id="feedCount" class="muted"></span>
+    </div>
+    <div id="feedList" class="card-list"></div>
+  </section>
+
+  <footer class="foot">
+    <span>数据源：锋讯 Pulse</span>
+    <span id="heardCount"></span>
+  </footer>
+
+  <div id="toast" class="toast hidden" role="status"></div>
+
+  <audio id="player" preload="auto" playsinline webkit-playsinline></audio>
+  <script src="/static/app.js?v=4"></script>
+</body>
+</html>
