@@ -1,0 +1,15 @@
+{
+  "deployed": false,
+  "reason": "Cloudflare MCP OAuth lacks Workers Scripts write; account has no workers.dev subdomain yet",
+  "account_id": "5d5369ed658b63410e44446a83ef0f77",
+  "account_name": "Luoyesuifeng2030@gmail.com's Account",
+  "worker_name": "news-broadcast",
+  "email": "luoyesuifeng2030@gmail.com",
+  "unblock": [
+    "Open https://dash.cloudflare.com/?to=/:account/workers-and-pages once (creates workers.dev subdomain)",
+    "Reconnect Cloudflare MCP with Workers Scripts:Edit OR create API token and run wrangler deploy",
+    "Or add CLOUDFLARE_API_TOKEN + CLOUDFLARE_ACCOUNT_ID secrets to GitHub repo and run Deploy Worker workflow"
+  ],
+  "tts": "Workers AI @cf/myshell-ai/melotts (zh) — verified via API; Edge neural styles (狐媚 rate/pitch) need Edge TTS v2 DRM which free npm ports still use rejected v1 tokens",
+  "project_path": "/workspace/news-broadcast/cf-worker"
+}
